@@ -17,15 +17,15 @@ public class MenuComponent {
 		JMenuItem rgb = new JMenuItem("Color channels");
 		menu.add(rgb);
 		menu.addSeparator();
-		JMenuItem exit = new JMenuItem("Exit");
-		exit.addActionListener(new ActionListener() {
+		JMenuItem exitMenuItem = new JMenuItem("Exit");
+		exitMenuItem.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
-		menu.add(exit);
+		menu.add(exitMenuItem);
 		return menuBar;
 	}
 }
