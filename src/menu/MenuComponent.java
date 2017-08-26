@@ -14,14 +14,8 @@ public class MenuComponent {
 		JMenu menu = new JMenu("Settings");
 		menuBar.add(menu);
 
-		JMenu rgb = new JMenu("RGB Chooser");
+		JMenuItem rgb = new JMenuItem("Color channels");
 		menu.add(rgb);
-		JMenuItem rgb1 = new JMenuItem("Red");
-		rgb.add(rgb1);
-		JMenuItem rgb2 = new JMenuItem("Green");
-		rgb.add(rgb2);
-		JMenuItem rgb3 = new JMenuItem("Blue");
-		rgb.add(rgb3);
 		menu.addSeparator();
 		JMenuItem exit = new JMenuItem("Exit");
 		exit.addActionListener(new ActionListener() {
