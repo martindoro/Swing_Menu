@@ -15,6 +15,14 @@ public class MenuComponent {
 		menuBar.add(menu);
 
 		JMenuItem rgb = new JMenuItem("Color channels");
+		rgb.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new ColorFrame();
+			}
+
+		});
 		menu.add(rgb);
 		menu.addSeparator();
 		JMenuItem exitMenuItem = new JMenuItem("Exit");
@@ -28,4 +36,5 @@ public class MenuComponent {
 		menu.add(exitMenuItem);
 		return menuBar;
 	}
+
 }
