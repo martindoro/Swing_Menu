@@ -2,8 +2,10 @@ package menu;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Graphics;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class MenuFrameDemo {
 
@@ -17,9 +19,26 @@ public class MenuFrameDemo {
 		MenuFrameDemo.frameBackground = frameBackground;
 	}
 
+	private class BackGroundPanel extends JPanel {
+
+		private static final long serialVersionUID = -7448339677098092671L;
+
+		public static Color color = new Color(0, 0, 0);
+
+		public BackGroundPanel() {
+			repaint();
+		}
+
+		@Override
+		protected void paintComponent(Graphics g) {
+			g.setColor(color);
+			// MenuFrameDemo.setFrameBackground(color);
+		}
+	}
+
 	public static void main(String[] args) {
 
-		frameBackground = BackGroundPanel.color;
+		frameBackground = MenuFrameDemo.BackGroundPanel.color;
 		EventQueue.invokeLater(() -> {
 			JFrame frame = new JFrame("Swing Menu");
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
