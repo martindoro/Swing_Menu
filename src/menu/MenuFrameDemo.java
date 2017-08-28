@@ -1,53 +1,42 @@
 package menu;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Graphics;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.JLabel;
 
 public class MenuFrameDemo {
+	public static Color backGroundColor = new Color(0, 0, 0);
 
-	static Color frameBackground;
-
-	public static Color getFrameBackground() {
-		return frameBackground;
+	public static Color getBackGroundColor() {
+		return backGroundColor;
 	}
 
-	public static void setFrameBackground(Color frameBackground) {
-		MenuFrameDemo.frameBackground = frameBackground;
+	public static void setBackGroundColor(Color backGroundColor) {
+		MenuFrameDemo.backGroundColor = backGroundColor;
 	}
 
-	private class BackGroundPanel extends JPanel {
-
-		private static final long serialVersionUID = -7448339677098092671L;
-
-		public static Color color = new Color(0, 0, 0);
-
-		public BackGroundPanel() {
-			repaint();
-		}
-
-		@Override
-		protected void paintComponent(Graphics g) {
-			g.setColor(color);
-			// MenuFrameDemo.setFrameBackground(color);
-		}
-	}
-
-	public static void main(String[] args) {
-
-		frameBackground = MenuFrameDemo.BackGroundPanel.color;
+	private static void createMainFrame() {
 		EventQueue.invokeLater(() -> {
 			JFrame frame = new JFrame("Swing Menu");
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			frame.setJMenuBar((new MenuComponent()).createMenuBar());
-			frame.add(new BackGroundPanel());
-			frame.setSize(500, 500);
-			frame.setBackground(frameBackground);
+			frame.setJMenuBar(new MenuComponent().createMenuBar());
+			JLabel backGround = new JLabel();
+			backGround.setOpaque(true);
+			backGround.setVisible(true);
+			backGround.setBackground(backGroundColor);
+			backGround.setPreferredSize(new Dimension(500, 500));
+			frame.getContentPane().add(backGround);
+			frame.pack();
 			frame.setVisible(true);
+			frame.repaint();
 		});
+	}
+
+	public static void main(String[] args) {
+		createMainFrame();
 	}
 
 }

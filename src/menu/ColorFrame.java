@@ -17,6 +17,13 @@ import javax.swing.event.ChangeListener;
 
 public class ColorFrame {
 	private JFrame rgbFrame;
+	private int redValue = MenuFrameDemo.getBackGroundColor().getRed();
+	private int greenValue = MenuFrameDemo.getBackGroundColor().getGreen();
+	private int blueValue = MenuFrameDemo.getBackGroundColor().getBlue();
+	private int newRed;
+	private int newGreen;
+	private int newBlue;
+	private Color newColor = new Color(newRed, newGreen, newBlue);
 
 	public ColorFrame() {
 		EventQueue.invokeLater(() -> {
@@ -34,13 +41,6 @@ public class ColorFrame {
 
 		protected static final int MIN = 0;
 		protected static final int MAX = 255;
-		private int redValue = MenuFrameDemo.getFrameBackground().getRed();
-		private int greenValue = MenuFrameDemo.getFrameBackground().getGreen();
-		private int blueValue = MenuFrameDemo.getFrameBackground().getBlue();
-		private int newRed;
-		private int newGreen;
-		private int newBlue;
-		private Color newColor = new Color(newRed, newGreen, newBlue);
 
 		public RgbControlPanel() {
 			setLayout(new GridBagLayout());
@@ -56,6 +56,7 @@ public class ColorFrame {
 				public void stateChanged(ChangeEvent e) {
 					JSlider source = (JSlider) e.getSource();
 					newRed = source.getValue();
+					MenuFrameDemo.setBackGroundColor(newColor);
 				}
 			});
 			add(red);
@@ -71,6 +72,7 @@ public class ColorFrame {
 				public void stateChanged(ChangeEvent e) {
 					JSlider source = (JSlider) e.getSource();
 					newGreen = source.getValue();
+					MenuFrameDemo.setBackGroundColor(newColor);
 				}
 			});
 			add(green);
@@ -86,7 +88,7 @@ public class ColorFrame {
 				public void stateChanged(ChangeEvent e) {
 					JSlider source = (JSlider) e.getSource();
 					newBlue = source.getValue();
-					MenuFrameDemo.setFrameBackground(newColor);
+					MenuFrameDemo.setBackGroundColor(newColor);
 				}
 			});
 			add(blue);
@@ -96,7 +98,7 @@ public class ColorFrame {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					MenuFrameDemo.BackgroundPanel..color = newColor;
+					MenuFrameDemo.setBackGroundColor(newColor);
 				}
 			});
 			add(setBackground);
