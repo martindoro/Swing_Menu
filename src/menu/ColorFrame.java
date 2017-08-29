@@ -56,7 +56,6 @@ public class ColorFrame {
 				public void stateChanged(ChangeEvent e) {
 					JSlider source = (JSlider) e.getSource();
 					newRed = source.getValue();
-					MenuFrameDemo.setBackGroundColor(newColor);
 				}
 			});
 			add(red);
@@ -72,7 +71,6 @@ public class ColorFrame {
 				public void stateChanged(ChangeEvent e) {
 					JSlider source = (JSlider) e.getSource();
 					newGreen = source.getValue();
-					MenuFrameDemo.setBackGroundColor(newColor);
 				}
 			});
 			add(green);
@@ -88,7 +86,6 @@ public class ColorFrame {
 				public void stateChanged(ChangeEvent e) {
 					JSlider source = (JSlider) e.getSource();
 					newBlue = source.getValue();
-					MenuFrameDemo.setBackGroundColor(newColor);
 				}
 			});
 			add(blue);
@@ -99,6 +96,9 @@ public class ColorFrame {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					MenuFrameDemo.setBackGroundColor(newColor);
+					MenuFrameDemo.backGround.setBackground(newColor);
+					MenuFrameDemo.backGround.repaint();
+					rgbFrame.dispose();
 				}
 			});
 			add(setBackground);

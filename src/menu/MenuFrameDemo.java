@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 public class MenuFrameDemo {
 	public static Color backGroundColor = new Color(0, 0, 0);
 
+	public static JLabel backGround = new JLabel();
 	public static Color getBackGroundColor() {
 		return backGroundColor;
 	}
@@ -23,7 +24,6 @@ public class MenuFrameDemo {
 			JFrame frame = new JFrame("Swing Menu");
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.setJMenuBar(new MenuComponent().createMenuBar());
-			JLabel backGround = new JLabel();
 			backGround.setOpaque(true);
 			backGround.setVisible(true);
 			backGround.setBackground(backGroundColor);
