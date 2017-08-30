@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class MenuFrameDemo {
-	public static Color backGroundColor = new Color(0, 0, 0);
+	public static Color backGroundColor;
 
 	public static JLabel backGround = new JLabel();
 	public static Color getBackGroundColor() {
@@ -26,7 +26,7 @@ public class MenuFrameDemo {
 			frame.setJMenuBar(new MenuComponent().createMenuBar());
 			backGround.setOpaque(true);
 			backGround.setVisible(true);
-			backGround.setBackground(backGroundColor);
+			backGround.setBackground(getBackGroundColor());
 			backGround.setPreferredSize(new Dimension(500, 500));
 			frame.getContentPane().add(backGround);
 			frame.pack();
@@ -36,6 +36,7 @@ public class MenuFrameDemo {
 	}
 
 	public static void main(String[] args) {
+		setBackGroundColor(new Color(0, 0, 0));
 		createMainFrame();
 	}
 

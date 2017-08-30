@@ -20,10 +20,9 @@ public class ColorFrame {
 	private int redValue = MenuFrameDemo.getBackGroundColor().getRed();
 	private int greenValue = MenuFrameDemo.getBackGroundColor().getGreen();
 	private int blueValue = MenuFrameDemo.getBackGroundColor().getBlue();
-	private int newRed;
-	private int newGreen;
-	private int newBlue;
-	private Color newColor = new Color(newRed, newGreen, newBlue);
+	private static int newRed;
+	private static int newGreen;
+	private static int newBlue;
 
 	public ColorFrame() {
 		EventQueue.invokeLater(() -> {
@@ -56,6 +55,7 @@ public class ColorFrame {
 				public void stateChanged(ChangeEvent e) {
 					JSlider source = (JSlider) e.getSource();
 					newRed = source.getValue();
+					MenuFrameDemo.backGround.setBackground(new Color(newRed, newGreen, newBlue));
 				}
 			});
 			add(red);
@@ -71,6 +71,7 @@ public class ColorFrame {
 				public void stateChanged(ChangeEvent e) {
 					JSlider source = (JSlider) e.getSource();
 					newGreen = source.getValue();
+					MenuFrameDemo.backGround.setBackground(new Color(newRed, newGreen, newBlue));
 				}
 			});
 			add(green);
@@ -86,6 +87,7 @@ public class ColorFrame {
 				public void stateChanged(ChangeEvent e) {
 					JSlider source = (JSlider) e.getSource();
 					newBlue = source.getValue();
+					MenuFrameDemo.backGround.setBackground(new Color(newRed, newGreen, newBlue));
 				}
 			});
 			add(blue);
@@ -95,9 +97,9 @@ public class ColorFrame {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					MenuFrameDemo.setBackGroundColor(newColor);
-					MenuFrameDemo.backGround.setBackground(newColor);
-					MenuFrameDemo.backGround.repaint();
+					MenuFrameDemo.backGround.setBackground(new Color(newRed, newGreen, newBlue));
+					MenuFrameDemo.setBackGroundColor(new Color(newRed, newGreen, newBlue));
+					repaint();
 					rgbFrame.dispose();
 				}
 			});
@@ -108,6 +110,7 @@ public class ColorFrame {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					MenuFrameDemo.backGround.setBackground(new Color(redValue, greenValue, blueValue));
 					rgbFrame.dispose();
 				}
 			});
